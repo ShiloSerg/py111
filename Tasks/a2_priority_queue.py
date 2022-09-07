@@ -28,10 +28,15 @@ class PriorityQueue:
         """
         if not self.priority_queue:
             return None
-        sorted_dict = {k: self.priority_queue[k] for k in sorted(self.priority_queue)}
-        for key in sorted_dict.keys():
-            if len(sorted_dict[key]) != 0:
-                new_vale = int(sorted_dict[key].pop(0))
+        # sorted_dict = {k: self.priority_queue[k] for k in sorted(self.priority_queue)} - Сортировака словаря по ключам
+        # for key in sorted_dict.keys():
+        #     if len(sorted_dict[key]) != 0:
+        #         new_vale = int(sorted_dict[key].pop(0))
+        #         return new_vale
+
+        for key in sorted(self.priority_queue):
+            if len(self.priority_queue[key]) != 0:
+                new_vale = int(self.priority_queue[key].pop(0))
                 return new_vale
 
     def peek(self, ind: int = 0, priority: int = 0) -> Any:
@@ -41,8 +46,8 @@ class PriorityQueue:
         :param ind: index of element (count from the beginning)
         :return: peeked element
         """
-        priority_values = self.priority_queue[priority]
-        return priority_values[ind]
+        priority_value = self.priority_queue[priority]
+        return priority_value[ind]
 
     def clear(self) -> None:
         """
