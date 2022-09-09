@@ -36,7 +36,7 @@ class PriorityQueue:
 
         for key in sorted(self.priority_queue):
             if len(self.priority_queue[key]) != 0:
-                new_vale = int(self.priority_queue[key].pop(0))
+                new_vale = self.priority_queue[key].pop(0)
                 return new_vale
 
     def peek(self, ind: int = 0, priority: int = 0) -> Any:
